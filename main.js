@@ -86,11 +86,11 @@ function updateWeatherUI(weather, wind, name, dt, main, uvValue, aqiList) {
   weathericon.src = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
   temp.innerHTML = `+${Math.floor(main.temp - 273.15)}°C`;
   weatherDisc.innerHTML = `${weather[0].description}`;
-  feel.innerHTML = `Feels Like +${Math.floor(main.feels_like - 273.15)}°C`;
+  feel.innerHTML = `Feels Like +${Math.ceil(main.feels_like - 273.15)}°C`;
   weatherWind.innerHTML = `${Math.floor(wind.speed * 3.6)} km/h`;
   weatherhum.innerHTML = `${main.humidity} %`;
   if (wind.hasOwnProperty("gust")) {
-    gust.innerHTML = `${wind.gust}`;
+    gust.innerHTML = `${Math.round(wind.gust)} km/h`;
   } else {
     gust.innerHTML = `${0}`;
   }
@@ -130,7 +130,7 @@ function addCitySearch() {
   const input = document.createElement("input");
   const btn = document.createElement("button");
   const form = document.createElement("form");
-
+  // form.setAttribute("action", "");
   div.classList.add("city");
   btn.innerHTML = "Search";
   weathercity.replaceWith(div);
