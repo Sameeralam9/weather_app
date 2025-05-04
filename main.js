@@ -80,7 +80,7 @@ async function fetchFullWeatherInfo(data, lat, lon) {
 // Update UI elements with weather data
 function updateWeatherUI(weather, wind, name, dt, main, uvValue, aqiList) {
   weathercity.innerHTML = `${name}`;
-  icon.setAttribute("src", "./icons/down-arrow.png");
+  icon.setAttribute("src", './icons/arrow.png');
   weathercity.appendChild(icon);
   weathercity.addEventListener("click", addCitySearch);
   weathericon.src = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
